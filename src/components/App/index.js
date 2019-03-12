@@ -1,8 +1,8 @@
 import React from "react";
 import "../Styles/index.css";
 import { Route, withRouter } from "react-router-dom";
-import SignUp from "../SignUp";
-import SignIn from "../SignIn";
+import SignUp from "../Signup";
+import SignIn from "../Signin";
 
 class App extends React.Component {
   render() {
