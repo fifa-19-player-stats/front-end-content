@@ -1,42 +1,29 @@
 import React from "react";
 import "../Styles/index.css";
-import GenericForm from "../GenericForm";
-import axios from "axios";
+//import GenericForm from "../GenericForm";
 
-class SignIn extends React.Component {
-  state = {
-    username: "",
-    password: ""
-  };
-
-  handleInputChange = event => {
-    this.setState({ [event.target.name]: event.target.value });
-  };
-
-  handleSubmit = event => {
-    event.preventDefault();
-    axios
-      .post("insert url", this.state)
-      .then(response => {
-        localStorage.setItem("jwt", response.data);
-        this.props.history.push("endpoint");
-      })
-      .catch(error => console.log(error));
-  };
-
-  render() {
+const SignIn = (props) => {
     return (
-      <div>
-        <GenericForm
-          type={"login"}
-          username={this.state.username}
-          password={this.state.password}
-          handleInputChange={this.handleInputChange}
-          handleFormSubmit={this.handleSubmit}
-        />
-      </div>
+        <form onSubmit={props.submit}>
+          <input
+            type="text"
+            name="username"
+            placeholder="Username..."
+            value={props.username}
+            onChange={props.change}
+            required
+          />
+          <input
+            type="password"
+            name="password"
+            placeholder="Password..."
+            value={props.password}
+            onChange={props.change}
+            required
+          />
+        <button type="submit">Submit</button>
+      </form>
     );
-  }
 }
 
 export default SignIn;
