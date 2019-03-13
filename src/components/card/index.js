@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const { name, age, prefFoot, value, rating, games, goals, postion } = this.props;
+const { name, age, prefFoot, value, rating, games, goals, position } = this.props;
 
 const PlayerCard = props => {
   return (
